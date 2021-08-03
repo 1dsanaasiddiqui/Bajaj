@@ -1,8 +1,9 @@
+  
 from flask import Flask, jsonify, request
 
 import json
 
-app=Flask(_name_)
+app=Flask(__name__)
 @app.route('/',methods=["GET"])
 def main():
   default_file={
@@ -16,13 +17,13 @@ def main():
 def new():
   data=request.get_json()
   if data==None:
-    return("EXPECTING INPUT")
+    return("POST INPUT")
   number=data["numbers"]
   
   odd=[]
   even=[]
   final_dict={}
-  userid="Sanaa_Siddiqui_04052000"
+  userid="SanaaSiddiqui_2000"
   status = True
   for i in number:
       if i.isnumeric():
@@ -44,5 +45,5 @@ def new():
 
   return jsonify(final)
 
-if _name=="main_":
+if __name__=="__main__":
     app.run()
